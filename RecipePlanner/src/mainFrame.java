@@ -99,8 +99,9 @@ public class mainFrame extends javax.swing.JFrame {
         recipeNameLabel = new javax.swing.JLabel();
         recipeNameTextField = new javax.swing.JTextField();
         addIngredientButton = new javax.swing.JButton();
-        addStepPanel = new javax.swing.JPanel();
         addStepButton = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        addStepPanel = new javax.swing.JPanel();
         pnlTabbed = new javax.swing.JTabbedPane();
         pnlInventory = new javax.swing.JPanel();
         pnlSortby = new javax.swing.JPanel();
@@ -265,7 +266,6 @@ public class mainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        addIngredientPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         addIngredientPanel.setLayout(new java.awt.GridBagLayout());
 
         recipeNameLabel.setText("Name:");
@@ -277,8 +277,6 @@ public class mainFrame extends javax.swing.JFrame {
             }
         });
 
-        addStepPanel.setLayout(new java.awt.GridBagLayout());
-
         addStepButton.setText("Add Additional Step");
         addStepButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -286,50 +284,60 @@ public class mainFrame extends javax.swing.JFrame {
             }
         });
 
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        addStepPanel.setLayout(new java.awt.GridBagLayout());
+
         javax.swing.GroupLayout addRecipeDialogLayout = new javax.swing.GroupLayout(addRecipeDialog.getContentPane());
         addRecipeDialog.getContentPane().setLayout(addRecipeDialogLayout);
         addRecipeDialogLayout.setHorizontalGroup(
             addRecipeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addRecipeDialogLayout.createSequentialGroup()
-                .addGroup(addRecipeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addRecipeDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(addRecipeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(addRecipeDialogLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(recipeNameLabel)
                         .addGap(18, 18, 18)
                         .addComponent(recipeNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(addRecipeDialogLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addIngredientButton))
-                    .addGroup(addRecipeDialogLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addIngredientPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(75, 75, 75)
+                        .addComponent(addIngredientPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
+                    .addComponent(addIngredientButton))
+                .addGap(77, 77, 77)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
                 .addGroup(addRecipeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(addRecipeDialogLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(addStepPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(addRecipeDialogLayout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(addStepButton)))
-                .addGap(146, 146, 146))
+                    .addComponent(addStepButton)
+                    .addComponent(addStepPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
         addRecipeDialogLayout.setVerticalGroup(
             addRecipeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addRecipeDialogLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(addRecipeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(recipeNameLabel)
-                    .addComponent(recipeNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addComponent(addIngredientButton)
-                .addGap(18, 38, Short.MAX_VALUE)
-                .addComponent(addIngredientPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(288, 288, 288))
             .addGroup(addRecipeDialogLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(addStepButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addStepPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(addRecipeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addRecipeDialogLayout.createSequentialGroup()
+                        .addGroup(addRecipeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(addRecipeDialogLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(addRecipeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(recipeNameLabel)
+                                    .addComponent(recipeNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(21, 21, 21)
+                                .addComponent(addIngredientButton))
+                            .addGroup(addRecipeDialogLayout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(addStepButton)))
+                        .addGroup(addRecipeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(addRecipeDialogLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(addIngredientPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(addRecipeDialogLayout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(addStepPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(addRecipeDialogLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -500,7 +508,7 @@ public class mainFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlTabbed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(389, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pnlTabbed.getAccessibleContext().setAccessibleName("");
@@ -540,6 +548,7 @@ public class mainFrame extends javax.swing.JFrame {
 
         //create another step label
         int stepLabelNum = stepLabelList.size();
+        System.out.println("Label: " + stepLabelNum);
         stepLabelList.add(new javax.swing.JLabel("Step " + (stepLabelNum+1) + ":"));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -549,11 +558,11 @@ public class mainFrame extends javax.swing.JFrame {
         
         //create first step text field
         int stepTextFieldNum = stepTextFieldList.size();
+        System.out.println("Field: " + stepTextFieldNum);
         stepTextFieldList.add(new javax.swing.JTextField());
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = stepTextFieldNum;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = stepTextFieldNum;
         addStepPanel.add(stepTextFieldList.get(stepTextFieldNum), gridBagConstraints);
     }//GEN-LAST:event_addStepButtonMouseClicked
 
@@ -608,6 +617,7 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JDialog dialogAddItem;
     private javax.swing.JDialog dialogEditItem;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblItemAmount_AddItem;
     private javax.swing.JLabel lblItemAmount_EditItem;
     private javax.swing.JLabel lblItemLocation_AddItem;
