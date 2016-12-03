@@ -1,0 +1,20 @@
+<Recipes>
+	<Recipe>
+		<RecipeId>1</RecipeId>
+		<RecipeName>Spaghetti</RecipeName>
+		<Ingredient>
+			<IngredientId>1</IngredientId>
+			<IngredientName>Noodles</IngredientName>
+			<Amount>1</Amount>
+			<Unit>Lb</Unit>
+		</Ingredient>
+		<Ingredient>
+			<IngredientId>2</IngredientId>
+			<IngredientName>Sauce</IngredientName>
+			<Amount>1</Amount>
+			<Unit>Lb</Unit>
+		</Ingredient>
+		<Instructions>Boil 3 Quarts water. Add noodles and cook for 8 minutes. Drain water, add sauce.</Instructions>
+		<Time>720</Time>
+	</Recipe>
+</Recipes>

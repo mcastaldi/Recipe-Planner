@@ -13,35 +13,47 @@ import java.util.List;
  * @author mcastaldi
  */
 public class Recipe {
-    private String name, description;
-    private int time, numUsed;//time is in seconds
+    private String name, instructions;
+    private int time, numUses,id;//time is in seconds
     private List<Ingredient> ingredients;
     
-    public Recipe(String name, String description, int time, List<Ingredient> ingredients){
+    public Recipe(int id,String name, String instructions, int time, List<Ingredient> ingredients){
+        this.id = id;
         this.name = name;
-        this.description = description;
+        this.instructions = instructions;
         this.time = time;
         this.ingredients = ingredients;
-        numUsed = 0;
+        numUses = 0;
     }
     
-    public Recipe(String name, String description, int time){
+    public Recipe(int id, String name, String instructions, int time){
+        this.id = id;
         this.name = name;
-        this.description = description;
+        this.instructions = instructions;
         this.time = time;
         this.ingredients = new ArrayList<>();
-        numUsed = 0;
+        numUses = 0;
+    }
+    
+    public Recipe(){
+        ingredients = new ArrayList<>();
     }
 
+    public int getId(){
+        return id;
+    }
+    public void setId(int id){
+        this.id = id;
+    }
     public int getNumIngredients(){
         return ingredients.size();
     }
-    public int getNumUsed(){
-        return numUsed;
+    public int getNumUses(){
+        return numUses;
     }
     
     public List<Ingredient> useRecipe(){
-        numUsed++;
+        numUses++;
         return ingredients;
     }
     public void addIngredient(Ingredient ingredient){
@@ -55,12 +67,12 @@ public class Recipe {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getInstructions() {
+        return instructions;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
 
     public int getTime() {
@@ -77,6 +89,20 @@ public class Recipe {
 
     public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+    
+    @Override
+    public String toString(){
+        String returnString = "Id: " + id +
+                              "\nName: " + name +
+                              "Ingredients: \n";
+        for(Ingredient i: ingredients){
+            returnString+= i.toString();
+        }
+        returnString += "\nInstructions: \n" + instructions +"\n" + 
+                        "Time: " + time;
+        
+        return returnString;
     }
     
     
