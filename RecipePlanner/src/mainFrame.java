@@ -235,7 +235,7 @@ public class mainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dialogAddItem = new javax.swing.JDialog();
+        addItemDialog = new javax.swing.JDialog();
         lblItemName_AddItem = new javax.swing.JLabel();
         txtboxItemName_AddItem = new javax.swing.JTextField();
         lblItemAmount_AddItem = new javax.swing.JLabel();
@@ -246,17 +246,6 @@ public class mainFrame extends javax.swing.JFrame {
         txtboxItemLocation_AddItem = new javax.swing.JTextField();
         btnOk_AddItem = new javax.swing.JButton();
         btnCancel_AddItem = new javax.swing.JButton();
-        dialogEditItem = new javax.swing.JDialog();
-        lblItemName_EditItem = new javax.swing.JLabel();
-        txtboxItemName_EditItem = new javax.swing.JTextField();
-        lblItemAmount_EditItem = new javax.swing.JLabel();
-        txtboxItemAmount_EditItem = new javax.swing.JTextField();
-        lblItemUnit_EditItem = new javax.swing.JLabel();
-        cmbboxtemUnit_EditItem = new javax.swing.JComboBox<>();
-        lblItemLocation_EditItem = new javax.swing.JLabel();
-        txtboxItemLocation_EditItem = new javax.swing.JTextField();
-        btnOk_EditItem = new javax.swing.JButton();
-        btnCancel_EditItem = new javax.swing.JButton();
         addRecipeDialog = new javax.swing.JDialog();
         addIngredientPanel = new javax.swing.JPanel();
         recipeNameLabel = new javax.swing.JLabel();
@@ -279,11 +268,7 @@ public class mainFrame extends javax.swing.JFrame {
         recipeInfoCancel = new javax.swing.JButton();
         mainPane = new javax.swing.JTabbedPane();
         pnlInventory = new javax.swing.JPanel();
-        pnlSortby = new javax.swing.JPanel();
-        cmbboxSortby = new javax.swing.JComboBox<>();
-        lblSortby = new javax.swing.JLabel();
         btnAddItem = new javax.swing.JButton();
-        btnEditItem = new javax.swing.JButton();
         paneInventory = new javax.swing.JScrollPane();
         tableInventory = new javax.swing.JTable();
         pnlRecipe = new javax.swing.JPanel();
@@ -292,7 +277,7 @@ public class mainFrame extends javax.swing.JFrame {
         addRecipeButton = new javax.swing.JButton();
         recipeFeedbackLabel = new javax.swing.JLabel();
 
-        dialogAddItem.setTitle("Add Item");
+        addItemDialog.setTitle("Add Item");
 
         lblItemName_AddItem.setText("Item Name:");
 
@@ -308,32 +293,32 @@ public class mainFrame extends javax.swing.JFrame {
 
         btnCancel_AddItem.setText("Cancel");
 
-        javax.swing.GroupLayout dialogAddItemLayout = new javax.swing.GroupLayout(dialogAddItem.getContentPane());
-        dialogAddItem.getContentPane().setLayout(dialogAddItemLayout);
-        dialogAddItemLayout.setHorizontalGroup(
-            dialogAddItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dialogAddItemLayout.createSequentialGroup()
-                .addGroup(dialogAddItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dialogAddItemLayout.createSequentialGroup()
+        javax.swing.GroupLayout addItemDialogLayout = new javax.swing.GroupLayout(addItemDialog.getContentPane());
+        addItemDialog.getContentPane().setLayout(addItemDialogLayout);
+        addItemDialogLayout.setHorizontalGroup(
+            addItemDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addItemDialogLayout.createSequentialGroup()
+                .addGroup(addItemDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addItemDialogLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addGroup(dialogAddItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(dialogAddItemLayout.createSequentialGroup()
+                        .addGroup(addItemDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(addItemDialogLayout.createSequentialGroup()
                                 .addComponent(lblItemLocation_AddItem)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtboxItemLocation_AddItem))
-                            .addGroup(dialogAddItemLayout.createSequentialGroup()
-                                .addGroup(dialogAddItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(addItemDialogLayout.createSequentialGroup()
+                                .addGroup(addItemDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblItemName_AddItem)
                                     .addComponent(lblItemAmount_AddItem)
                                     .addComponent(lblItemUnit_AddItem))
                                 .addGap(23, 23, 23)
-                                .addGroup(dialogAddItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(addItemDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtboxItemName_AddItem)
                                     .addComponent(txtboxItemAmount_AddItem)
-                                    .addGroup(dialogAddItemLayout.createSequentialGroup()
+                                    .addGroup(addItemDialogLayout.createSequentialGroup()
                                         .addComponent(cmbboxtemUnit_AddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))))))
-                    .addGroup(dialogAddItemLayout.createSequentialGroup()
+                    .addGroup(addItemDialogLayout.createSequentialGroup()
                         .addGap(80, 80, 80)
                         .addComponent(btnOk_AddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(65, 65, 65)
@@ -341,104 +326,29 @@ public class mainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        dialogAddItemLayout.setVerticalGroup(
-            dialogAddItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dialogAddItemLayout.createSequentialGroup()
+        addItemDialogLayout.setVerticalGroup(
+            addItemDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addItemDialogLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addGroup(dialogAddItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(addItemDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblItemName_AddItem)
                     .addComponent(txtboxItemName_AddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(dialogAddItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(addItemDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblItemAmount_AddItem)
                     .addComponent(txtboxItemAmount_AddItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(dialogAddItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(addItemDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblItemUnit_AddItem)
                     .addComponent(cmbboxtemUnit_AddItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(dialogAddItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(addItemDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblItemLocation_AddItem)
                     .addComponent(txtboxItemLocation_AddItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(dialogAddItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(addItemDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOk_AddItem)
                     .addComponent(btnCancel_AddItem))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        dialogEditItem.setTitle("Edit Item");
-
-        lblItemName_EditItem.setText("Item Name:");
-
-        lblItemAmount_EditItem.setText("Item Amount:");
-
-        lblItemUnit_EditItem.setText("Item Unit:");
-
-        cmbboxtemUnit_EditItem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Teaspoon", "Tablespoon", "Fluid Ounce", "Cup", "Pint", "Quart", "Gallon", "Pound", "Ounce", "Gram", " ", " ", " " }));
-
-        lblItemLocation_EditItem.setText("Item Location:");
-
-        btnOk_EditItem.setText("Ok");
-
-        btnCancel_EditItem.setText("Cancel");
-
-        javax.swing.GroupLayout dialogEditItemLayout = new javax.swing.GroupLayout(dialogEditItem.getContentPane());
-        dialogEditItem.getContentPane().setLayout(dialogEditItemLayout);
-        dialogEditItemLayout.setHorizontalGroup(
-            dialogEditItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dialogEditItemLayout.createSequentialGroup()
-                .addGroup(dialogEditItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dialogEditItemLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(dialogEditItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(dialogEditItemLayout.createSequentialGroup()
-                                .addComponent(lblItemLocation_EditItem)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtboxItemLocation_EditItem))
-                            .addGroup(dialogEditItemLayout.createSequentialGroup()
-                                .addGroup(dialogEditItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblItemName_EditItem)
-                                    .addComponent(lblItemAmount_EditItem)
-                                    .addComponent(lblItemUnit_EditItem))
-                                .addGap(23, 23, 23)
-                                .addGroup(dialogEditItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtboxItemName_EditItem)
-                                    .addComponent(txtboxItemAmount_EditItem)
-                                    .addGroup(dialogEditItemLayout.createSequentialGroup()
-                                        .addComponent(cmbboxtemUnit_EditItem, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))))
-                    .addGroup(dialogEditItemLayout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(btnOk_EditItem, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(btnCancel_EditItem, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        dialogEditItemLayout.setVerticalGroup(
-            dialogEditItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dialogEditItemLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(dialogEditItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblItemName_EditItem)
-                    .addComponent(txtboxItemName_EditItem, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(dialogEditItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblItemAmount_EditItem)
-                    .addComponent(txtboxItemAmount_EditItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(dialogEditItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblItemUnit_EditItem)
-                    .addComponent(cmbboxtemUnit_EditItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(dialogEditItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblItemLocation_EditItem)
-                    .addComponent(txtboxItemLocation_EditItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(dialogEditItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnOk_EditItem)
-                    .addComponent(btnCancel_EditItem))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -599,40 +509,12 @@ public class mainFrame extends javax.swing.JFrame {
             }
         });
 
-        pnlSortby.setBackground(new java.awt.Color(255, 255, 255));
-        pnlSortby.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cmbboxSortby.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alphabetical A-Z", "Alphabetical Z-A", "Location", " " }));
-        cmbboxSortby.setActionCommand("");
-
-        lblSortby.setText("Sort By");
-
-        javax.swing.GroupLayout pnlSortbyLayout = new javax.swing.GroupLayout(pnlSortby);
-        pnlSortby.setLayout(pnlSortbyLayout);
-        pnlSortbyLayout.setHorizontalGroup(
-            pnlSortbyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlSortbyLayout.createSequentialGroup()
-                .addGap(2, 2, 2)
-                .addComponent(lblSortby)
-                .addGap(94, 94, 94))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSortbyLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cmbboxSortby, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        pnlSortbyLayout.setVerticalGroup(
-            pnlSortbyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlSortbyLayout.createSequentialGroup()
-                .addGap(2, 2, 2)
-                .addComponent(lblSortby)
-                .addGap(2, 2, 2)
-                .addComponent(cmbboxSortby, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2))
-        );
-
         btnAddItem.setText("Add Item");
-
-        btnEditItem.setText("Edit Item");
+        btnAddItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddItemActionPerformed(evt);
+            }
+        });
 
         tableInventory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -660,28 +542,19 @@ public class mainFrame extends javax.swing.JFrame {
         pnlInventoryLayout.setHorizontalGroup(
             pnlInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlInventoryLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(pnlInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlInventoryLayout.createSequentialGroup()
-                        .addComponent(pnlSortby, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(btnAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(btnEditItem, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(paneInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(paneInventory, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInventoryLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlInventoryLayout.setVerticalGroup(
             pnlInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlInventoryLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlSortby, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnEditItem, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(paneInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(paneInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddItem)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -771,15 +644,12 @@ public class mainFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(mainPane, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mainPane, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(mainPane, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 14, Short.MAX_VALUE))
+            .addComponent(mainPane, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         mainPane.getAccessibleContext().setAccessibleName("");
@@ -866,6 +736,11 @@ public class mainFrame extends javax.swing.JFrame {
         recipeInfoDialog.dispose();
     }//GEN-LAST:event_recipeInfoCancelActionPerformed
 
+    private void btnAddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddItemActionPerformed
+        addItemDialog.setVisible(true);
+        addItemDialog.pack();
+    }//GEN-LAST:event_btnAddItemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -901,19 +776,13 @@ public class mainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addIngredientButton;
     private javax.swing.JPanel addIngredientPanel;
+    private javax.swing.JDialog addItemDialog;
     private javax.swing.JButton addRecipeButton;
     private javax.swing.JDialog addRecipeDialog;
     private javax.swing.JButton btnAddItem;
     private javax.swing.JButton btnCancel_AddItem;
-    private javax.swing.JButton btnCancel_EditItem;
-    private javax.swing.JButton btnEditItem;
     private javax.swing.JButton btnOk_AddItem;
-    private javax.swing.JButton btnOk_EditItem;
-    private javax.swing.JComboBox<String> cmbboxSortby;
     private javax.swing.JComboBox<String> cmbboxtemUnit_AddItem;
-    private javax.swing.JComboBox<String> cmbboxtemUnit_EditItem;
-    private javax.swing.JDialog dialogAddItem;
-    private javax.swing.JDialog dialogEditItem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -922,19 +791,13 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblItemAmount_AddItem;
-    private javax.swing.JLabel lblItemAmount_EditItem;
     private javax.swing.JLabel lblItemLocation_AddItem;
-    private javax.swing.JLabel lblItemLocation_EditItem;
     private javax.swing.JLabel lblItemName_AddItem;
-    private javax.swing.JLabel lblItemName_EditItem;
     private javax.swing.JLabel lblItemUnit_AddItem;
-    private javax.swing.JLabel lblItemUnit_EditItem;
-    private javax.swing.JLabel lblSortby;
     private javax.swing.JTabbedPane mainPane;
     private javax.swing.JScrollPane paneInventory;
     private javax.swing.JPanel pnlInventory;
     private javax.swing.JPanel pnlRecipe;
-    private javax.swing.JPanel pnlSortby;
     private javax.swing.JLabel recipeFeedbackLabel;
     private javax.swing.JButton recipeInfoCancel;
     private javax.swing.JDialog recipeInfoDialog;
@@ -947,11 +810,8 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JButton startRecipeButton;
     private javax.swing.JTable tableInventory;
     private javax.swing.JTextField txtboxItemAmount_AddItem;
-    private javax.swing.JTextField txtboxItemAmount_EditItem;
     private javax.swing.JTextField txtboxItemLocation_AddItem;
-    private javax.swing.JTextField txtboxItemLocation_EditItem;
     private javax.swing.JTextField txtboxItemName_AddItem;
-    private javax.swing.JTextField txtboxItemName_EditItem;
     private javax.swing.JPanel viewRecipeIngredientsPanel;
     private javax.swing.JScrollPane viewRecipeIngredientsScrollPane;
     private javax.swing.JTable viewRecipesTable;
