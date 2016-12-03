@@ -38,6 +38,14 @@ public class Recipe {
     public Recipe(){
         ingredients = new ArrayList<>();
     }
+    public Recipe(Recipe r){
+        this.name = r.getName();
+        this.instructions = r.getInstructions();
+        this.time = r.getTime();
+        this.numUses = r.getNumUses();
+        this.id = r.getId();
+        this.ingredients = r.getIngredients();
+    }
 
     public int getId(){
         return id;
@@ -74,11 +82,20 @@ public class Recipe {
     public void setInstructions(String instructions) {
         this.instructions = instructions;
     }
-
+    public String getPrettyInstructions(){
+        String[] parts = instructions.split("\\.");
+        String returnString = " ";
+        for(String s: parts){
+            returnString += s +".\n";
+        }
+        return returnString;
+    }
     public int getTime() {
         return time;
     }
-
+    public String getDisplayTime(){
+        return (time/3600) + ":" + ((time/60)%60) + ":" + (time%60);
+    }
     public void setTime(int time) {
         this.time = time;
     }

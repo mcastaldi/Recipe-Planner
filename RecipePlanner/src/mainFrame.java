@@ -1,4 +1,5 @@
 
+import java.awt.GridBagConstraints;
 import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -29,6 +30,7 @@ public class mainFrame extends javax.swing.JFrame {
     List<javax.swing.JComboBox> ingredientBoxList;
     List<javax.swing.JLabel> stepLabelList;
     List<javax.swing.JTextField> stepTextFieldList;
+    Recipe currentRecipe;
 //    java.awt.GridBagLayout viewRecipeInfoBagLayout;
 //    java.awt.GridBagConstraints viewRecipeInfoConstraints;
     static List<Recipe> recipes;
@@ -39,6 +41,7 @@ public class mainFrame extends javax.swing.JFrame {
      * Creates new form mainFrame
      */
     public mainFrame() {
+        
         ingredientLabelList = new ArrayList<>();
         ingredientBoxList = new ArrayList<>();
         stepLabelList = new ArrayList<>();
@@ -59,7 +62,6 @@ public class mainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
         addIngredientPanel.add(ingredientLabelList.get(0), gridBagConstraints);
-        viewRecipeIngredientsPanel.add(ingredientLabelList.get(0),gridBagConstraints);
 
         //create and add first ingredient combo box
         ingredientBoxList.add(new javax.swing.JComboBox<>());
@@ -70,7 +72,6 @@ public class mainFrame extends javax.swing.JFrame {
         addIngredientPanel.add(ingredientBoxList.get(0), gridBagConstraints);
         
         
-        viewRecipeIngredientsPanel.add(ingredientBoxList.get(0),gridBagConstraints);
         loadRecipes();
         model = (DefaultTableModel) viewRecipesTable.getModel();
 //        //create first step label
@@ -93,6 +94,51 @@ public class mainFrame extends javax.swing.JFrame {
         
     }
 
+    private GridBagConstraints createInfoGbc(int col,int row){
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = col;
+        gbc.gridy = row;
+        switch(col){
+                case 0:
+                    gbc.anchor = GridBagConstraints.WEST;
+                    gbc.insets = new java.awt.Insets(0,0,0,20);
+                    break;
+                case 1:
+                    gbc.anchor = GridBagConstraints.EAST;
+                    gbc.insets = new java.awt.Insets(0,20,0,0);
+                    break;
+                default:
+                    break;
+        }
+        return gbc;
+    }
+    public void displayRecipe(){
+        selectedRecipeTableRowIndex = viewRecipesTable.convertRowIndexToModel(viewRecipesTable.getSelectedRow());
+            
+        currentRecipe = new Recipe(recipes.get(selectedRecipeTableRowIndex));
+        recipeInfoName.setText(currentRecipe.getName());
+        recipeInstructionsTextArea.setText(currentRecipe.getPrettyInstructions());
+        //convert time to HH:MM:SS
+        recipeInfoTime.setText(currentRecipe.getDisplayTime());
+
+        int row = 0;
+        //loop through ingredients of current recipe
+        for(Ingredient i: currentRecipe.getIngredients()){
+
+            //Add ingredient name in first column at current row
+            javax.swing.JLabel ingredientName= new javax.swing.JLabel(i.getName());
+            viewRecipeIngredientsPanel.add(ingredientName,createInfoGbc(0,row));
+
+            //Add ingredient amount in second column at current row
+            javax.swing.JLabel ingredientAmount= new javax.swing.JLabel(Integer.toString(i.getAmount())+" " +i.getUnitOfMeasure());
+            viewRecipeIngredientsPanel.add(ingredientAmount,createInfoGbc(1,row));
+
+            //go to next row
+            row++;
+        }
+        recipeInfoDialog.setVisible(true);
+        recipeInfoDialog.pack();
+    }
     public static void loadRecipes(){
         recipes = new ArrayList<>();
         try{
@@ -225,7 +271,7 @@ public class mainFrame extends javax.swing.JFrame {
         viewRecipeIngredientsScrollPane = new javax.swing.JScrollPane();
         viewRecipeIngredientsPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        recipeInstructionsTextArea = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         recipeInfoName = new javax.swing.JLabel();
         recipeInfoTime = new javax.swing.JLabel();
@@ -469,11 +515,11 @@ public class mainFrame extends javax.swing.JFrame {
         viewRecipeIngredientsPanel.setLayout(new java.awt.GridBagLayout());
         viewRecipeIngredientsScrollPane.setViewportView(viewRecipeIngredientsPanel);
 
-        jTextArea2.setEditable(false);
-        jTextArea2.setBackground(new java.awt.Color(238, 238, 238));
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane4.setViewportView(jTextArea2);
+        recipeInstructionsTextArea.setEditable(false);
+        recipeInstructionsTextArea.setBackground(new java.awt.Color(238, 238, 238));
+        recipeInstructionsTextArea.setColumns(20);
+        recipeInstructionsTextArea.setRows(5);
+        jScrollPane4.setViewportView(recipeInstructionsTextArea);
 
         jLabel2.setText("Instructions");
 
@@ -484,6 +530,11 @@ public class mainFrame extends javax.swing.JFrame {
         startRecipeButton.setText("Start Recipe");
 
         recipeInfoCancel.setText("Cancel");
+        recipeInfoCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                recipeInfoCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout recipeInfoDialogLayout = new javax.swing.GroupLayout(recipeInfoDialog.getContentPane());
         recipeInfoDialog.getContentPane().setLayout(recipeInfoDialogLayout);
@@ -530,8 +581,8 @@ public class mainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(recipeInfoDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(viewRecipeIngredientsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4))
+                    .addComponent(viewRecipeIngredientsScrollPane)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -631,7 +682,7 @@ public class mainFrame extends javax.swing.JFrame {
                         .addComponent(btnEditItem, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(paneInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mainPane.addTab("Inventory", pnlInventory);
@@ -664,6 +715,11 @@ public class mainFrame extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        viewRecipesTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                viewRecipesTableMouseClicked(evt);
             }
         });
         viewRecipesTable.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -705,7 +761,7 @@ public class mainFrame extends javax.swing.JFrame {
                         .addGap(16, 16, 16)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(195, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         mainPane.addTab("Recipes", pnlRecipe);
@@ -722,8 +778,8 @@ public class mainFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(mainPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(mainPane, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 14, Short.MAX_VALUE))
         );
 
         mainPane.getAccessibleContext().setAccessibleName("");
@@ -798,11 +854,17 @@ public class mainFrame extends javax.swing.JFrame {
 
     private void viewRecipesTableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_viewRecipesTableKeyReleased
         if(evt.getKeyCode() == KeyEvent.VK_DOWN || evt.getKeyCode() == KeyEvent.VK_UP){
-            selectedRecipeTableRowIndex = viewRecipesTable.convertRowIndexToModel(viewRecipesTable.getSelectedRow());
-            recipeInfoDialog.setVisible(true);
-            recipeInfoDialog.pack();
+            this.displayRecipe();
         }
     }//GEN-LAST:event_viewRecipesTableKeyReleased
+
+    private void viewRecipesTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewRecipesTableMouseClicked
+        this.displayRecipe();
+    }//GEN-LAST:event_viewRecipesTableMouseClicked
+
+    private void recipeInfoCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recipeInfoCancelActionPerformed
+        recipeInfoDialog.dispose();
+    }//GEN-LAST:event_recipeInfoCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -859,7 +921,6 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JLabel lblItemAmount_AddItem;
     private javax.swing.JLabel lblItemAmount_EditItem;
     private javax.swing.JLabel lblItemLocation_AddItem;
@@ -880,6 +941,7 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel recipeInfoIngredients;
     private javax.swing.JLabel recipeInfoName;
     private javax.swing.JLabel recipeInfoTime;
+    private javax.swing.JTextArea recipeInstructionsTextArea;
     private javax.swing.JLabel recipeNameLabel;
     private javax.swing.JTextField recipeNameTextField;
     private javax.swing.JButton startRecipeButton;
