@@ -39,6 +39,7 @@ public class mainFrame extends javax.swing.JFrame {
     DefaultTableModel model;
     DefaultTableCellRenderer centerRenderer;
     private int selectedRecipeTableRowIndex;
+    private List<Integer> recipeIds;
     /**
      * Creates new form mainFrame
      */
@@ -240,6 +241,7 @@ public class mainFrame extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
+        addRecipeConfirm = new javax.swing.JButton();
         recipeInfoDialog = new javax.swing.JDialog();
         recipeInfoIngredients = new javax.swing.JLabel();
         viewRecipeIngredientsScrollPane = new javax.swing.JScrollPane();
@@ -362,6 +364,13 @@ public class mainFrame extends javax.swing.JFrame {
 
         jLabel1.setText("Instructions:");
 
+        addRecipeConfirm.setText("Add Recipe");
+        addRecipeConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addRecipeConfirmActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout addRecipeDialogLayout = new javax.swing.GroupLayout(addRecipeDialog.getContentPane());
         addRecipeDialog.getContentPane().setLayout(addRecipeDialogLayout);
         addRecipeDialogLayout.setHorizontalGroup(
@@ -379,18 +388,24 @@ public class mainFrame extends javax.swing.JFrame {
                     .addComponent(addIngredientButton))
                 .addGap(77, 77, 77)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(addRecipeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addContainerGap(33, Short.MAX_VALUE))
+                    .addGroup(addRecipeDialogLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(addRecipeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addContainerGap(35, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addRecipeDialogLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addRecipeConfirm)
+                        .addGap(86, 86, 86))))
         );
         addRecipeDialogLayout.setVerticalGroup(
             addRecipeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addRecipeDialogLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(addRecipeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(addRecipeDialogLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(addRecipeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(recipeNameLabel)
                             .addComponent(recipeNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -399,13 +414,14 @@ public class mainFrame extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addComponent(addIngredientPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(addRecipeDialogLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(addRecipeDialogLayout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel1)
+                        .addGroup(addRecipeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(addRecipeDialogLayout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(jLabel1))
+                            .addComponent(addRecipeConfirm))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
 
@@ -705,6 +721,8 @@ public class mainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_addIngredientButtonMouseClicked
 
     private void addRecipeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addRecipeButtonMouseClicked
+        
+        System.out.println("test");
         addRecipeDialog.setVisible(true);
         addRecipeDialog.pack();
     }//GEN-LAST:event_addRecipeButtonMouseClicked
@@ -774,6 +792,13 @@ public class mainFrame extends javax.swing.JFrame {
         recipeStartedDialog.pack();
     }//GEN-LAST:event_startRecipeButtonActionPerformed
 
+    private void addRecipeConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRecipeConfirmActionPerformed
+        for(javax.swing.JComboBox ingredient: ingredientBoxList){
+            System.out.println(ingredient.getSelectedItem().toString());
+            
+        }
+    }//GEN-LAST:event_addRecipeConfirmActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -811,6 +836,7 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel addIngredientPanel;
     private javax.swing.JDialog addItemDialog;
     private javax.swing.JButton addRecipeButton;
+    private javax.swing.JButton addRecipeConfirm;
     private javax.swing.JDialog addRecipeDialog;
     private javax.swing.JButton btnAddItem;
     private javax.swing.JButton btnCancel_AddItem;
