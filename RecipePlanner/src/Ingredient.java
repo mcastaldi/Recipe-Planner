@@ -6,7 +6,7 @@
 
 /**
  *
- * @author mcastaldi
+ * @author mcastaldi, kdrexler
  */
 public class Ingredient {
     String name, description, unitOfMeasure;
