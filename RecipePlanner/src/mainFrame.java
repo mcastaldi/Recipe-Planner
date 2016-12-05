@@ -6,8 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.stream.XMLEventReader;
@@ -50,7 +48,6 @@ public class mainFrame extends javax.swing.JFrame {
         stepLabelList = new ArrayList<>();
         stepTextFieldList = new ArrayList<>();
         initComponents();
-        this.setLocationRelativeTo(null);
 //        viewRecipeInfoBagLayout = new java.awt.GridBagLayout();
 //        viewRecipeInfoConstraints = new java.awt.GridBagConstraints();
         
@@ -78,6 +75,23 @@ public class mainFrame extends javax.swing.JFrame {
         
         loadRecipes();
         model = (DefaultTableModel) viewRecipesTable.getModel();
+//        //create first step label
+//        //int stepLabelNum = stepLabelList.size();
+//        stepLabelList.add(new javax.swing.JLabel("Step 1:"));
+//        gridBagConstraints = new java.awt.GridBagConstraints();
+//        gridBagConstraints.gridx = 0;
+//        gridBagConstraints.gridy = 0;
+//        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
+//        addStepPanel.add(stepLabelList.get(0), gridBagConstraints);
+//        
+//        //create first step text field
+//        //int stepTextFieldNum = stepTextFieldList.size();
+//        stepTextFieldList.add(new javax.swing.JTextField());
+//        gridBagConstraints = new java.awt.GridBagConstraints();
+//        gridBagConstraints.gridx = 1;
+//        gridBagConstraints.gridy = 0;
+//        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
+//        addStepPanel.add(stepTextFieldList.get(0), gridBagConstraints);
         
     }
 
@@ -211,6 +225,7 @@ public class mainFrame extends javax.swing.JFrame {
                 
             }
         } catch(FileNotFoundException | XMLStreamException e){}
+        System.out.println(recipes.get(0).toString());
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -253,10 +268,6 @@ public class mainFrame extends javax.swing.JFrame {
         recipeInfoTime = new javax.swing.JLabel();
         startRecipeButton = new javax.swing.JButton();
         recipeInfoCancel = new javax.swing.JButton();
-        recipeStartedDialog = new javax.swing.JDialog();
-        timerLabel = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         mainPane = new javax.swing.JTabbedPane();
         pnlInventory = new javax.swing.JPanel();
         btnAddItem = new javax.swing.JButton();
@@ -443,11 +454,6 @@ public class mainFrame extends javax.swing.JFrame {
         recipeInfoTime.setText("00:00:00");
 
         startRecipeButton.setText("Start Recipe");
-        startRecipeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                startRecipeButtonActionPerformed(evt);
-            }
-        });
 
         recipeInfoCancel.setText("Cancel");
         recipeInfoCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -503,38 +509,6 @@ public class mainFrame extends javax.swing.JFrame {
                 .addGroup(recipeInfoDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(viewRecipeIngredientsScrollPane)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        timerLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        timerLabel.setText("Remaining: 00:00:00");
-
-        jLabel4.setText("The used ingredients have been removed");
-
-        jLabel5.setText("from the system.");
-
-        javax.swing.GroupLayout recipeStartedDialogLayout = new javax.swing.GroupLayout(recipeStartedDialog.getContentPane());
-        recipeStartedDialog.getContentPane().setLayout(recipeStartedDialogLayout);
-        recipeStartedDialogLayout.setHorizontalGroup(
-            recipeStartedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(recipeStartedDialogLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(recipeStartedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(recipeStartedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
-                        .addComponent(timerLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel5))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        recipeStartedDialogLayout.setVerticalGroup(
-            recipeStartedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, recipeStartedDialogLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(timerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -718,6 +692,26 @@ public class mainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = ingredientBoxNum;
         addIngredientPanel.add(ingredientBoxList.get(ingredientBoxNum), gridBagConstraints);
         
+//        java.awt.GridBagConstraints gridBagConstraints;
+//
+//        //create another step label
+//        int stepLabelNum = stepLabelList.size();
+//        System.out.println("Label: " + stepLabelNum);
+//        stepLabelList.add(new javax.swing.JLabel("Step " + (stepLabelNum+1) + ":"));
+//        gridBagConstraints = new java.awt.GridBagConstraints();
+//        gridBagConstraints.gridx = 0;
+//        gridBagConstraints.gridy = stepLabelNum;
+//        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
+//        addStepPanel.add(stepLabelList.get(stepLabelNum), gridBagConstraints);
+//        
+//        //create first step text field
+//        int stepTextFieldNum = stepTextFieldList.size();
+//        System.out.println("Field: " + stepTextFieldNum);
+//        stepTextFieldList.add(new javax.swing.JTextField());
+//        gridBagConstraints = new java.awt.GridBagConstraints();
+//        gridBagConstraints.gridx = 1;
+//        gridBagConstraints.gridy = stepTextFieldNum;
+//        addStepPanel.add(stepTextFieldList.get(stepTextFieldNum), gridBagConstraints);
     }//GEN-LAST:event_addIngredientButtonMouseClicked
 
     private void addRecipeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addRecipeButtonMouseClicked
@@ -765,6 +759,7 @@ public class mainFrame extends javax.swing.JFrame {
         addItemDialog.pack();
     }//GEN-LAST:event_btnAddItemActionPerformed
 
+<<<<<<< HEAD
     private void startRecipeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startRecipeButtonActionPerformed
         //an attempt at making a sound. Would add after timer finishes.
 //        try{
@@ -799,6 +794,8 @@ public class mainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_addRecipeConfirmActionPerformed
 
+=======
+>>>>>>> parent of 6e2df55... Merge remote-tracking branch 'refs/remotes/origin/RecipeStuff'
     /**
      * @param args the command line arguments
      */
@@ -844,8 +841,6 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbboxtemUnit_AddItem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
@@ -868,10 +863,8 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JTextArea recipeInstructionsTextArea;
     private javax.swing.JLabel recipeNameLabel;
     private javax.swing.JTextField recipeNameTextField;
-    private javax.swing.JDialog recipeStartedDialog;
     private javax.swing.JButton startRecipeButton;
     private javax.swing.JTable tableInventory;
-    private javax.swing.JLabel timerLabel;
     private javax.swing.JTextField txtboxItemAmount_AddItem;
     private javax.swing.JTextField txtboxItemLocation_AddItem;
     private javax.swing.JTextField txtboxItemName_AddItem;
